@@ -2,6 +2,7 @@
     "name": "alsharie/cashpay-payment",
     "description": "CashPay payment gateway",
     "type": "library",
+    "license": "MIT",
     "require": {
         "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.5",
