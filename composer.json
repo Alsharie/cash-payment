@@ -1,0 +1,31 @@
+{
+    "name": "alsharie/cashpay-payment",
+    "description": "CashPay payment gateway",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.5",
+        "illuminate/support": "^9.33"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alsharie\\CashPayPayment\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alsharie",
+            "email": "abdulrahman.alsharie@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alsharie\\CashPayPayment\\CashPayServiceProvider"
+            ],
+            "aliases": {
+                "CashPayPayment": "CashPayPayment"
+            }
+        }
+    }
+}
