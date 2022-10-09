@@ -24,6 +24,10 @@ class CashPay extends CashPayAttributes
         $this->setUnixtimestamp();
         $this->setEncPassword();
 
+        if(!isset($this->attributes['CurrencyId'])){
+            $this->attributes['CurrencyId']=2;//rial Yemeni
+        }
+
         try {
             $response = $this->sendRequest(
                 $this->getInitPaymentPath(),

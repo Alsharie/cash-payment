@@ -81,6 +81,9 @@ class CashPayAttributes extends Guzzle
 
     /**
      * Cash team will provide u upon request
+     * 2= Rial Yemeni
+     * 4= Dollar
+     * 5= Rial Saudi
      * @param $CurrencyId
      * @return CashPayAttributes
      */
