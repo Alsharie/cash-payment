@@ -15,7 +15,7 @@ class CashPayAttributes extends Guzzle
     protected array $security = [];
     protected array $temp = [];
 
-    protected function disableVerify()
+    public function disableVerify()
     {
         $this->security['verify'] = false;
     }
