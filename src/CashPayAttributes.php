@@ -18,6 +18,7 @@ class CashPayAttributes extends Guzzle
     public function disableVerify()
     {
         $this->security['verify'] = false;
+        return $this;
     }
 
     protected function setUnixtimestamp()
