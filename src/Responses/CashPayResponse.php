@@ -3,6 +3,8 @@
 namespace Alsharie\CashPayPayment\Responses;
 
 
+use Alsharie\CashPayPayment\Responses\Error\CashPayErrorCode;
+
 class CashPayResponse
 {
     protected $success = true;
@@ -40,7 +42,7 @@ class CashPayResponse
 
     public function isSuccess()
     {
-        if (isset($this->data['ResultCode']) && $this->data['ResultCode'] == 1) {
+        if (isset($this->data->ResultCode) && $this->data->ResultCode == 1) {
 
             return $this->success;
         }
@@ -49,25 +51,28 @@ class CashPayResponse
 
     public function message()
     {
-        if (isset($this->data['ResultMessage'])) {
+        if (isset($this->data->ResultMessage)) {
 
-            return $this->data['ResultMessage'];
+            return $this->data->ResultMessage;
+        } else if (isset($this->data->Message)) {
+
+            return $this->data->Message;
         }
 
-        return $this->data['Message'];
     }
 
 
     public function errorMessage()
     {
-        if (isset($this->data['Message'])) {
-            $errorCode = $this->data['Message'];
+        if (isset($this->data->ResultMessage)) {
+            $errorCode = $this->data->ResultMessage;
 
-            if (!isset(CashPayResponseCode::$codes[$errorCode]))
+            if (!isset(CashPayErrorCode::$codes[$errorCode]))
                 $errorCode = '9999';
 
-            return CashPayResponseCode::$codes[$errorCode];
+            return CashPayErrorCode::$codes[$errorCode];
         }
+
     }
 
     /**
@@ -76,16 +81,16 @@ class CashPayResponse
      */
     public function code()
     {
-        if (isset($this->data['ResultCode'])) {
-            return $this->data['ResultCode'];
+        if (isset($this->data->ResultCode)) {
+            return $this->data->ResultCode;
         }
     }
 
 
     public function requestId()
     {
-        if (isset($this->data['RequestId'])) {
-            return $this->data['RequestId'];
+        if (isset($this->data->RequestId)) {
+            return $this->data->RequestId;
         }
     }
 

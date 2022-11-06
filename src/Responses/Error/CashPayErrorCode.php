@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 
-namespace Alsharie\CashPayPayment\Responses;
+namespace Alsharie\CashPayPayment\Responses\Error;
 
-class CashPayResponseCode
+class CashPayErrorCode
 {
-    static public $codes = array(
+    static public array $codes = array(
         "6000" => "Sys permission",
         "6001" => "duplicated timestamp",
         "6002" => "obsolete timestamp",
@@ -32,5 +32,3 @@ class CashPayResponseCode
 
     );
 }
-
-?>

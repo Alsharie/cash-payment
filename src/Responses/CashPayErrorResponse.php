@@ -7,10 +7,11 @@ class CashPayErrorResponse extends CashPayResponse
 {
     protected $success = false;
 
-    public function __construct($response)
+    public function __construct($response, $status)
     {
-        parent::__construct($response);
-        $this->data = $response;
+        $this->data = json_decode($response);
+        $this->data->status_code = $status;
     }
+
 
 }

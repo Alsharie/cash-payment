@@ -38,8 +38,8 @@ class CashPay extends CashPayAttributes
             );
 
             return new CashPayInitPaymentResponse((string)$response->getBody());
-        } catch (\Throwable $e) {
-            return new CashPayErrorResponse($e->getMessage());
+        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
         }
     }
 
@@ -65,8 +65,8 @@ class CashPay extends CashPayAttributes
             );
 
             return new CashPayConfirmPaymentResponse((string)$response->getBody());
-        } catch (\Throwable $e) {
-            return new CashPayErrorResponse($e->getMessage());
+        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
         }
     }
 
@@ -94,8 +94,8 @@ class CashPay extends CashPayAttributes
             );
 
             return new CashPayOperationStatusResponse((string)$response->getBody());
-        } catch (\Throwable $e) {
-            return new CashPayErrorResponse($e->getMessage());
+        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
         }
     }
 
