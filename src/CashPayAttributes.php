@@ -12,7 +12,13 @@ class CashPayAttributes extends Guzzle
     protected array $attributes = [];
 
     protected array $headers = [];
+    protected array $security = [];
     protected array $temp = [];
+
+    protected function disableVerify()
+    {
+        $this->security['verify'] = false;
+    }
 
     protected function setUnixtimestamp()
     {
@@ -53,7 +59,6 @@ class CashPayAttributes extends Guzzle
     {
         return $this->setCustomerPhone($phone);
     }
-
 
 
     /**
@@ -205,7 +210,6 @@ class CashPayAttributes extends Guzzle
     {
         $this->headers['encPassword'] = config('cashPay.auth.encPassword');
     }
-
 
 
     /**

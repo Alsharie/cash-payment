@@ -33,7 +33,8 @@ class CashPay extends CashPayAttributes
             $response = $this->sendRequest(
                 $this->getInitPaymentPath(),
                 $this->attributes,
-                $this->headers
+                $this->headers,
+                $this->security
             );
 
             return new CashPayInitPaymentResponse((string)$response->getBody());
@@ -59,7 +60,8 @@ class CashPay extends CashPayAttributes
             $response = $this->sendRequest(
                 $this->getConfirmPaymentPath(),
                 $this->attributes,
-                $this->headers
+                $this->headers,
+                $this->security
             );
 
             return new CashPayConfirmPaymentResponse((string)$response->getBody());
@@ -87,7 +89,8 @@ class CashPay extends CashPayAttributes
             $response = $this->sendRequest(
                 $this->getOperationStatusPath(),
                 $this->attributes,
-                $this->headers
+                $this->headers,
+                $this->security
             );
 
             return new CashPayOperationStatusResponse((string)$response->getBody());
