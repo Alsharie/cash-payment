@@ -9,8 +9,8 @@ class CashPayErrorResponse extends CashPayResponse
 
     public function __construct($response, $status)
     {
-        $this->data = json_decode($response);
-        $this->data->status_code = $status;
+        $this->data = (array) json_decode($response);
+        $this->data['status_code'] = $status;
     }
 
 

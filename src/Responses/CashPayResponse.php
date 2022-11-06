@@ -20,7 +20,7 @@ class CashPayResponse
      */
     public function __construct($response)
     {
-        $this->data = json_decode($response, true);
+        $this->data = (array) json_decode($response, true);
     }
 
 
@@ -42,7 +42,7 @@ class CashPayResponse
 
     public function isSuccess()
     {
-        if (isset($this->data->ResultCode) && $this->data->ResultCode == 1) {
+        if (isset($this->data['ResultCode']) && $this->data['ResultCode'] == 1) {
 
             return $this->success;
         }
@@ -51,12 +51,12 @@ class CashPayResponse
 
     public function message()
     {
-        if (isset($this->data->ResultMessage)) {
+        if (isset($this->data['ResultMessage'])) {
 
-            return $this->data->ResultMessage;
-        } else if (isset($this->data->Message)) {
+            return $this->data['ResultMessage'];
+        } else if (isset($this->data['Message'])) {
 
-            return $this->data->Message;
+            return $this->data['Message'];
         }
 
     }
@@ -64,8 +64,8 @@ class CashPayResponse
 
     public function errorMessage()
     {
-        if (isset($this->data->ResultMessage)) {
-            $errorCode = $this->data->ResultMessage;
+        if (isset($this->data['ResultMessage'])) {
+            $errorCode = $this->data['ResultMessage'];
 
             if (!isset(CashPayErrorCode::$codes[$errorCode]))
                 $errorCode = '9999';
@@ -81,16 +81,16 @@ class CashPayResponse
      */
     public function code()
     {
-        if (isset($this->data->ResultCode)) {
-            return $this->data->ResultCode;
+        if (isset($this->data['ResultCode'])) {
+            return $this->data['ResultCode'];
         }
     }
 
 
     public function requestId()
     {
-        if (isset($this->data->RequestId)) {
-            return $this->data->RequestId;
+        if (isset($this->data['RequestId'])) {
+            return $this->data['RequestId'];
         }
     }
 
