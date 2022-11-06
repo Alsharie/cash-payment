@@ -214,7 +214,7 @@ class CashPayAttributes extends Guzzle
      */
     protected function generateMDToken()
     {
-        $this->attributes['MDToken'] = hash('md5', $this->attributes['SpId'] + $this->attributes['Username'] + $this->headers['unixtimestamp']);
+        $this->attributes['MDToken'] = hash('md5', $this->attributes['SpId'] . $this->attributes['UserName'] . $this->headers['unixtimestamp']);
     }
 
 

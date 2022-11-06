@@ -23,6 +23,7 @@ class CashPay extends CashPayAttributes
         // set header info
         $this->setUnixtimestamp();
         $this->setEncPassword();
+        $this->generateMDToken();
 
         if(!isset($this->attributes['CurrencyId'])){
             $this->attributes['CurrencyId']=2;//rial Yemeni
@@ -52,6 +53,7 @@ class CashPay extends CashPayAttributes
         $this->setAuthAttributes();
         // set header info
         $this->setUnixtimestamp();
+        $this->generateMDToken();
 
         try {
             $response = $this->sendRequest(
@@ -79,6 +81,7 @@ class CashPay extends CashPayAttributes
         // set header info
         $this->setUnixtimestamp();
         $this->setEncPassword();
+        $this->generateMDToken();
 
         try {
             $response = $this->sendRequest(
