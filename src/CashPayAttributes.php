@@ -229,7 +229,7 @@ class CashPayAttributes extends Guzzle
      */
     protected function generateTRCode()
     {
-        $this->attributes['MDToken'] = hash('md5', $this->attributes['TransactionRef'] + $this->temp['otp']);
+        $this->attributes['TRCode'] = hash('md5', $this->attributes['TransactionRef'] . $this->temp['otp']);
     }
 
 }

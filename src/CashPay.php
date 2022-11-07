@@ -55,6 +55,7 @@ class CashPay extends CashPayAttributes
         // set header info
         $this->setUnixtimestamp();
         $this->generateMDToken();
+        $this->generateTRCode();
 
         try {
             $response = $this->sendRequest(
