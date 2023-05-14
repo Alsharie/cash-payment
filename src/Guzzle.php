@@ -58,6 +58,10 @@ class Guzzle
                     ],
                     $headers
                 ),
+                'cert' => [
+                    config('cashPay.cert.path'),
+                    config('cashPay.cert.password')
+                ],
                 'json' => $attributes,
                 ...$security
             ]

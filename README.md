@@ -18,12 +18,17 @@ return [
         'SpId' => env('CASHPAY_MERCHANT_SPID'),
         'encPassword' => env('CASHPAY_MERCHANT_ENCPASSWORD'),
     ],
+    'cert' => [
+        'path' => env('CASHPAY_CERT_PATH'),
+        'password' => env('CASHPAY_CERT_PASSWORD'),
+    ],
     'url' => [
         'base' => env('CASHPAY_BASE_URL', 'https://www.tamkeen.com.ye:33291'),
     ]
 ];
 ```
-
+when you are ready to release your application, you should set the `CASHPAY_BASE_URL` to *release-url*
+and they give you a certificate file and password to use it in `CASHPAY_CERT_PATH` and `CASHPAY_CERT_PASSWORD` respectively
 
 To purchase using CashPay payment
 
