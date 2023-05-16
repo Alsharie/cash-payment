@@ -23,7 +23,7 @@ return [
         'password' => env('CASHPAY_CERT_PASSWORD'),
     ],
     'url' => [
-        'base' => env('CASHPAY_BASE_URL', 'https://www.tamkeen.com.ye:33291'),
+        'base' => env('CASHPAY_BASE_URL', 'https://www.tamkeen.com.ye:33291/CashPG'),
     ]
 ];
 ```

@@ -71,19 +71,19 @@ class Guzzle
 
     protected function getInitPaymentPath(): string
     {
-        return $this->basePath . '/' . "CashPG/api/CashPay/InitPayment";
+        return $this->basePath . '/' . "api/CashPay/InitPayment";
     }
 
 
     protected function getConfirmPaymentPath(): string
     {
-        return $this->basePath . '/' . "CashPG/api/CashPay/ConfirmPayment";
+        return $this->basePath . '/' . "api/CashPay/ConfirmPayment";
     }
 
 
     protected function getOperationStatusPath(): string
     {
-        return $this->basePath . '/' . "CashPG/api/Operation/OperationStatus";
+        return $this->basePath . '/' . "api/Operation/OperationStatus";
     }
 
 

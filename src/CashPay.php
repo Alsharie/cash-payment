@@ -25,8 +25,8 @@ class CashPay extends CashPayAttributes
         $this->setEncPassword();
         $this->generateMDToken();
 
-        if(!isset($this->attributes['CurrencyId'])){
-            $this->attributes['CurrencyId']=2;//rial Yemeni
+        if (!isset($this->attributes['CurrencyId'])) {
+            $this->attributes['CurrencyId'] = 2;//rial Yemeni
         }
 
         try {
@@ -39,7 +39,9 @@ class CashPay extends CashPayAttributes
 
             return new CashPayInitPaymentResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
+            return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
+        } catch (\Exception $e) {
+            return new CashPayErrorResponse($e->getMessage(), $e->getCode());
         }
     }
 
@@ -67,10 +69,11 @@ class CashPay extends CashPayAttributes
 
             return new CashPayConfirmPaymentResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
+            return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
+        } catch (\Exception $e) {
+            return new CashPayErrorResponse($e->getMessage(), $e->getCode());
         }
     }
-
 
 
     /**
@@ -96,7 +99,9 @@ class CashPay extends CashPayAttributes
 
             return new CashPayOperationStatusResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return new CashPayErrorResponse($e->getResponse()->getBody(),$e->getResponse()->getStatusCode());
+            return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
+        } catch (\Exception $e) {
+            return new CashPayErrorResponse($e->getMessage(), $e->getCode());
         }
     }
 
