@@ -6,7 +6,7 @@
     "require": {
         "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.5",
-        "illuminate/support": "^9.33"
+        "illuminate/support": ">=9.33"
     },
     "autoload": {
         "psr-4": {
