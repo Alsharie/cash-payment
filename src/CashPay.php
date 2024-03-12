@@ -44,7 +44,7 @@ class CashPay extends CashPayAttributes
         } catch (\Exception $e) {
             return new CashPayErrorResponse($e, $e->getCode());
         } catch (GuzzleException $e) {
-            return new CashPayErrorResponse($e, $e->getCode());
+            return new CashPayErrorResponse($e->getMessage(), $e->getCode());
         }
     }
 
