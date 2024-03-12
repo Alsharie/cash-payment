@@ -41,10 +41,8 @@ class CashPay extends CashPayAttributes
             return new CashPayInitPaymentResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
-        } catch (\Exception $e) {
+        }  catch (GuzzleException $e) {
             return new CashPayErrorResponse($e, $e->getCode());
-        } catch (GuzzleException $e) {
-            return new CashPayErrorResponse($e->getMessage(), $e->getCode());
         }
     }
 
@@ -73,8 +71,6 @@ class CashPay extends CashPayAttributes
             return new CashPayConfirmPaymentResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
-        } catch (\Exception $e) {
-            return new CashPayErrorResponse($e, $e->getCode());
         } catch (GuzzleException $e) {
             return new CashPayErrorResponse($e, $e->getCode());
         }
@@ -105,8 +101,6 @@ class CashPay extends CashPayAttributes
             return new CashPayOperationStatusResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
-        } catch (\Exception $e) {
-            return new CashPayErrorResponse($e, $e->getCode());
         } catch (GuzzleException $e) {
             return new CashPayErrorResponse($e, $e->getCode());
         }
