@@ -40,9 +40,10 @@ class CashPay extends CashPayAttributes
             return new CashPayInitPaymentResponse((string)$response->getBody());
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             return new CashPayErrorResponse($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
-        } catch (\Exception $e) {
-            return new CashPayErrorResponse($e->getTraceAsString(), $e->getCode());
         }
+//        catch (\Exception $e) {
+//            return new CashPayErrorResponse($e->getTraceAsString(), $e->getCode());
+//        }
     }
 
 
