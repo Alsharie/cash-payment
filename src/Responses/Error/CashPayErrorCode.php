@@ -28,7 +28,8 @@ class CashPayErrorCode
         "6020" => "The currencyId not allowed.",
         "6021" => "Exceeding the allowed limit for the payment process",
         "6022" => "Expired password, you should change password",
-        "6023" => "Invalid credentials(username/password) for requester 9999 Some other error"
+        "6023" => "Invalid credentials(username/password) for requester 9999 Some other error",
+        "9999" => "Some other error"
 
     );
 }
